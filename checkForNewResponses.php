@@ -9,23 +9,23 @@
 
 require_once('header.php');
 
-$QuestionsArray = getQuestionsArray();
+$db = new DB;
+
+
+$QuestionsArray = getQuestionsArray($db);
 
 
 $numberOfEntries; // number of entries in Query
-getAnswerArray(0,$numberOfEntries); //call this function in order to get the Numbers of Entries
+getAnswerArray($db,0,$numberOfEntries); //call this function in order to get the Numbers of Entries
 
 $arrayOfAnswersArray = array();
 
 //for each arrayOfArrayAnswers get all answers of the $i entry
 for ($i=0; $i < $numberOfEntries ; $i++) { 
-	$arrayOfAnswersArray[$i] = getAnswerArray($i,$numberOfEntries);
+	$arrayOfAnswersArray[$i] = getAnswerArray($db,$i,$numberOfEntries);
 }
 
 writeHtmlFiles($numberOfEntries,$QuestionsArray,$arrayOfAnswersArray);
-
-
-
 
 
 

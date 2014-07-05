@@ -661,6 +661,17 @@ class DB{
         $this->result = null;
 		$this->rowArray = null;
 		$this->index = -1;
-	} 
+	}
+
+    function getObject($className = 'stdClass'){
+        $obj = new $className();
+        $row = $this->getRow();
+        if($row){
+            foreach($row as $attribute => $value){
+                $obj[$attribute] = $value;
+            }
+        }
+        return $obj;
+    }
 }
 ?>

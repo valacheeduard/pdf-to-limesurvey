@@ -157,13 +157,17 @@ function writeHtmlFiles($numberOfEntries,$QuestionsArray,$arrayOfAnswersArray){
 }
 
 
-function getQuestionsArray()  {
+function getQuestionsArray($db)  {
     try{
         $handler = new PDO('mysql:host=localhost;dbname=localhost_limesurvey','root','');
         $handler->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }catch(PDOException $e){
         echo $e->getMessage();
         die();
+    }
+    $db->query("SELECT * FROM  `lime_questions` ORDER BY  `lime_questions`.`gid` ASC LIMIT 0 , 700");
+    while($db->nextRow()){
+      echo $db->getObject("QuestionsWithAnswers");
     }
 
     $query = $handler->query("SELECT * FROM  `lime_questions` ORDER BY  `lime_questions`.`gid` ASC LIMIT 0 , 700");
@@ -179,35 +183,21 @@ function getQuestionsArray()  {
     return $QuestionsArray;
 }
 
-function getAnswerArray($personNumber,&$numberOfEntries){
-        try{
-        $handler = new PDO('mysql:host=localhost;dbname=localhost_limesurvey','root','');
-        $handler->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    }catch(PDOException $e){
-        echo $e->getMessage();
-        die();
-    }
+function getAnswerArray($db,$personNumber,&$numberOfEntries){
+
+    $AnswersArray = array();
 
     $date = date('Y-m-d H:i:s');
     $date24 = date("Y-m-d H:m:s", strtotime('-24 hours', time()));
 
+    $db->query("SELECT * FROM `lime_survey_967128` WHERE submitdate BETWEEN '2014-06-11 00:00:00' AND '2014-6-29 15:32:00'");
 
-    $query = $handler->query("SELECT * FROM `lime_survey_967128`
-                                WHERE submitdate BETWEEN '2014-06-11 00:00:00' AND '2014-6-29 15:32:00'");
-
-    $AnswersArray = array();
-    $times = 0;
-
-    while($r = $query->fetch(PDO::FETCH_ASSOC)){
-            $AnswersArray[]=$r;
+    while($db->nextRow()){
+        $AnswersArray[] = $db->getRow();
     }
 
     $numberOfEntries = count($AnswersArray);
-
-    // echo $AnswersArray[0]['967128X23X378'];
-     //echo '<pre>' , print_r($AnswersArray), '</pre>';
-
-    return $AnswersArray[$personNumber];   
+    return $AnswersArray[$personNumber];
 }
 
 

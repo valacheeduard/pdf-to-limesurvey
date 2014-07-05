@@ -54,12 +54,12 @@ class QuestionsWithAnswers{
 
 
 	private function setSNDTUtypeAnswers($personNumber,$arrayOfAnswers,$arrayOfQuestions){
-		$this->answerIdentifier = '967128X' . $this->gid  . 'X' . $this->qid;
+		$this->answerIdentifier = SURVEY_ID .'X' . $this->gid  . 'X' . $this->qid;
 		
-		foreach ($arrayOfAnswers as $key1 => $value1) {
-			if($key1 == $this->answerIdentifier)
+		foreach ($arrayOfAnswers as $key => $value) {
+			if($key == $this->answerIdentifier)
 				{
-					$this->answer = $this->answer . $value1;
+					$this->answer = $this->answer . $value;
 				}
 			}
 	}
