@@ -7,6 +7,7 @@ class QuestionsWithAnswers{
 	public $qid,$parent_qid,$gid,$type,$title,$question,$answer;
 	private $answerIdentifier;
 	public $comment;
+    public $htmlRepresentation;
 
 	public function __construct(){
 		$this->question = strip_tags($this->question);
@@ -62,6 +63,9 @@ class QuestionsWithAnswers{
 					$this->answer = $this->answer . $value;
 				}
 			}
+
+        $this->htmlRepresentation = '<p class="question">' . $this->question . ' <span class="answer"> ' . $this->answer
+            . '</span></p>';
 	}
 
 	private function setMtypeAnswers($personNumber,$arrayOfAnswers,$arrayOfQuestions){
@@ -75,7 +79,7 @@ class QuestionsWithAnswers{
 				}
 			}
 
-			$answerVariantIndentifiers = '967128X' . $this->gid  . 'X' . $this->qid;
+			$answerVariantIndentifiers = SURVEY_ID . 'X' . $this->gid  . 'X' . $this->qid;
 			
 
 				foreach ($arrayOfAnswers as $key => $value) {
@@ -93,19 +97,23 @@ class QuestionsWithAnswers{
 				if($variantsChecked[$i] == 1){
 					$this->answer = $this->answer . $variantsPossible[$i] ." " ;
 				}
-			}	
+			}
+
+        $this->htmlRepresentation = '<p class="question">' . $this->question . ' <span class="answer"> ' . $this->answer
+            . '</span></p>';
 
 
 	}
 
 	private function setKQtypeAnswers($personNumber,$arrayOfAnswers,$arrayOfQuestions){
 			
-			$answerVariantIndentifier = '967128X' . $this->gid  . 'X' . $this->qid;
+			$answerVariantIndentifier = SURVEY_ID . 'X' . $this->gid  . 'X' . $this->qid;
 			foreach ($arrayOfQuestions as $arr){
 				if($arr->parent_qid == $this->qid)
 				{
-					$answerVariantIndentifier = '967128X' . $arr->gid  . 'X' . $arr->parent_qid . $arr->title;
-					foreach ($arrayOfAnswers as $key => $value) {
+                    $answerVariantIndentifier =  SURVEY_ID . 'X' . $arr->gid  . 'X' . $arr->parent_qid . $arr->title;
+
+                    foreach ($arrayOfAnswers as $key => $value) {
 
 						if($key == $answerVariantIndentifier)
 						{
@@ -118,13 +126,16 @@ class QuestionsWithAnswers{
 				}
 			}
 
+        $this->htmlRepresentation = '<p class="question">' . $this->question . ' <span class="answer"> ' . $this->answer
+            . '</span></p>';
+
 
 	}
 
 	private function setYXtypeAnswers($personNumber, $arrayOfAnswers,$arrayOfQuestions){
 		//$this->answer = $arrayOfAnswers[0][$this->answerIdentifier];
 
-			$this->answerIdentifier = '967128X' . $this->gid  . 'X' . $this->qid;
+			$this->answerIdentifier = SURVEY_ID .'X' . $this->gid  . 'X' . $this->qid;
 				foreach ($arrayOfAnswers as $key1 => $value1) {
 					if($key1 == $this->answerIdentifier)
 					{
@@ -136,10 +147,12 @@ class QuestionsWithAnswers{
 					}
 				}
 
+        $this->htmlRepresentation = '<p class="question">' . $this->question . ' <span class="answer"> ' . $this->answer
+            . '</span></p>';
 	}
 
 	private function setOLandExclamationMarkTypeAnswers($personNumber,$arrayOfAnswers,$arrayOfQuestions){
-					$this->answerIdentifier = '967128X' . $this->gid . 'X'.$this->qid;
+					$this->answerIdentifier = SURVEY_ID . 'X' . $this->gid . 'X'.$this->qid;
 
 			$listOfAnswer= array();
 			$answerComment = NULL; //if exists
@@ -202,8 +215,12 @@ class QuestionsWithAnswers{
 						}
 					}	
 				}
-		
+
+
+        $this->htmlRepresentation = '<p class="question">' . $this->question . ' <span class="answer"> ' . $this->answer
+            . '</span></p>';
 		}
+
 
 }
 
