@@ -43,11 +43,12 @@ function getQuestionsArray($db)  {
         echo $e->getMessage();
         die();
     }
-//    $db->query("SELECT * FROM  `lime_questions` ORDER BY  `lime_questions`.`gid` ASC LIMIT 0 , 700");
-//
-//    while($db->nextRow()){
-//      echo $db->getObject('QuestionsWithAnswers');
-//    }
+
+    $db->query("SELECT * FROM  `lime_questions` ORDER BY  `lime_questions`.`gid` ASC LIMIT 0 , 700");
+
+    while($db->nextRow()){
+     echo $db->getObject('QuestionsWithAnswers');
+    }
 
     $query = $handler->query("SELECT * FROM  `lime_questions` ORDER BY  `lime_questions`.`gid` ASC LIMIT 0 , 700");
 

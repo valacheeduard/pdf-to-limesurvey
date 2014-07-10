@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="59ec36c2-e7ea-4567-9ab4-a8980241a5f1" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/DB.php" afterPath="$PROJECT_DIR$/classes/DB.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/SNDTU_Questions.php" afterPath="$PROJECT_DIR$/classes/SNDTU_Questions.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/functions.php" afterPath="$PROJECT_DIR$/functions.php" />
     </list>
     <ignored path="pdf-from-limesurvey.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,10 +42,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="functions.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="functions.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="25" selection-start="932" selection-end="932" vertical-scroll-proportion="0.0">
+            <state line="49" column="26" selection-start="1402" selection-end="1402" vertical-scroll-proportion="0.65750915">
               <folding />
             </state>
           </provider>
@@ -63,16 +63,16 @@
       <file leaf-file-name="DB.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/classes/DB.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="660" column="29" selection-start="18441" selection-end="18441" vertical-scroll-proportion="0.0">
+            <state line="676" column="4" selection-start="18775" selection-end="18775" vertical-scroll-proportion="-17.73077">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="QuestionsWithAnswers.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="QuestionsWithAnswers.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/classes/QuestionsWithAnswers.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="133" column="0" selection-start="3842" selection-end="3842" vertical-scroll-proportion="0.031894933">
+            <state line="133" column="0" selection-start="3842" selection-end="3842" vertical-scroll-proportion="-10.461538">
               <folding />
             </state>
           </provider>
@@ -121,10 +121,10 @@
       <list>
         <option value="$PROJECT_DIR$/classes/SNDTU_Questions.php" />
         <option value="$PROJECT_DIR$/checkForNewResponses.php" />
-        <option value="$PROJECT_DIR$/classes/DB.php" />
         <option value="$PROJECT_DIR$/template/pages/example.php" />
-        <option value="$PROJECT_DIR$/functions.php" />
         <option value="$PROJECT_DIR$/classes/QuestionsWithAnswers.php" />
+        <option value="$PROJECT_DIR$/classes/DB.php" />
+        <option value="$PROJECT_DIR$/functions.php" />
       </list>
     </option>
   </component>
@@ -418,13 +418,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/DB.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="660" column="29" selection-start="18441" selection-end="18441" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/template/pages/example.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="16" selection-start="544" selection-end="544" vertical-scroll-proportion="0.0">
@@ -439,13 +432,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/functions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="25" selection-start="932" selection-end="932" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="28" selection-start="415" selection-end="415" vertical-scroll-proportion="0.0">
@@ -453,9 +439,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/classes/DB.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="676" column="4" selection-start="18775" selection-end="18775" vertical-scroll-proportion="-17.73077">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/classes/QuestionsWithAnswers.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="133" column="0" selection-start="3842" selection-end="3842" vertical-scroll-proportion="0.031894933">
+        <state line="133" column="0" selection-start="3842" selection-end="3842" vertical-scroll-proportion="-10.461538">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="26" selection-start="1402" selection-end="1402" vertical-scroll-proportion="0.65750915">
           <folding />
         </state>
       </provider>
