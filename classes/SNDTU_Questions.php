@@ -7,6 +7,8 @@
  * To change this template use File | Settings | File Templates.
  */
 
-class SNDTU_Questions {
+class SNDTU_Questions extends QuestionsWithAnswers{
+
+
 
 }

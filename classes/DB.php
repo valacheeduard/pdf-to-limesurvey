@@ -668,7 +668,7 @@ class DB{
         $row = $this->getRow();
         if($row){
             foreach($row as $attribute => $value){
-                $obj[$attribute] = $value;
+                $obj->$attribute = $value;
             }
         }
         return $obj;
