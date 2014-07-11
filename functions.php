@@ -7,18 +7,19 @@ function writeFile($name,$content){
     file_put_contents("htmlQueries/". $file,$content);
 }
 
-function writeHtmlFiles($numberOfEntries,$QuestionsArray,$arrayOfAnswersArray){
+function writeHtmlFiles($db,$numberOfEntries,$arrayOfAnswersArray){
 
-    for ($i=0; $i < $numberOfEntries; $i++) { 
-        $QuestionsArray = getQuestionsArray();
+    for ($i=0; $i < $numberOfEntries; $i++) {
+
+        $QuestionsArray = getQuestionsArray($db);
 
         foreach ($QuestionsArray as $arr ) {
             $arr->setAllAnswers($i,$arrayOfAnswersArray[$i],$QuestionsArray);
-            echo '<pre>', print_r($arr), '</pre>';
         }
             
         $T = new tpl;
 
+        $htmlRepresentationForAll = "";
 
         foreach ($QuestionsArray as $arr){
             if($arr->parent_qid == 0){
@@ -31,34 +32,23 @@ function writeHtmlFiles($numberOfEntries,$QuestionsArray,$arrayOfAnswersArray){
     $aux = $T->fetch('example.php');
     $dateString = date('m.d.y');
     writeFile($dateString . $i,$aux);
+
     }
 }
 
 
 function getQuestionsArray($db)  {
-    try{
-        $handler = new PDO('mysql:host=localhost;dbname=localhost_limesurvey','root','');
-        $handler->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    }catch(PDOException $e){
-        echo $e->getMessage();
-        die();
-    }
 
     $db->query("SELECT * FROM  `lime_questions` ORDER BY  `lime_questions`.`gid` ASC LIMIT 0 , 700");
-
-    while($db->nextRow()){
-     echo $db->getObject('QuestionsWithAnswers');
-    }
-
-    $query = $handler->query("SELECT * FROM  `lime_questions` ORDER BY  `lime_questions`.`gid` ASC LIMIT 0 , 700");
-
-    $query->setFetchMode(PDO::FETCH_CLASS,'QuestionsWithAnswers');
-
     $QuestionsArray = array();
 
-    while($r = $query->fetch()){
-            array_push($QuestionsArray, $r);
+    while($db->nextRow()){
+     array_push($QuestionsArray, $db->getObject('QuestionsWithAnswers'));
+     //echo '<pre>' . print_r($db->getObject('QuestionsWithAnswers')) . '</pre><br>';
     }
+
+
+
 
     return $QuestionsArray;
 }
